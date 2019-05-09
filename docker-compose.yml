@@ -1,0 +1,46 @@
+version: '2'
+services: 
+    de-ondics-etcd-sidecar-registration:
+        build: .
+        volumes:
+            # lokale Entwicklung? dann mit volume-Zuordnung
+            - ./:/app
+        environment:
+            # Registration sidecar
+            - APP_ID=de-ondics-launchpad
+            - APP_NAME=ScaleIT LaunchPad
+            - APP_TITLE=ScaleIT LaunchPad
+            - APP_SHORT_DESCRIPTION=Start von ScaleIT Apps
+            - APP_DESCRIPTION=Mit dem LaunchPad können ScaleIT Apps aufgerufen werden
+            - APP_CATEGORY=coreApp
+            - APP_DOMAIN_SERVICE=de-ondics-launchpad-app
+            - APP_DOMAIN_PORT=51515
+            - APP_DOMAIN_PATH=/
+            - APP_ICON_SERVICE=de-ondics-launchpad-app
+            - APP_ICON_PORT=51515
+            - APP_ICON_PATH=/img/launcpad-icon.png
+            - APP_ADMIN_SERVICE=de-ondics-launchpad-app
+            - APP_ADMIN_PORT=51515
+            - APP_ADMIN_PATH=/admin
+            - APP_API_SERVICE=
+            - APP_API_PORT=
+            - APP_API_PATH=
+            - SSO_ACTIVATED=false
+            - HOST_IP=192.168.1.107
+
+    etcd:
+       image: quay.io/coreos/etcd
+       command:
+           - /usr/local/bin/etcd
+           - "-advertise-client-urls=http://0.0.0.0:49501"
+           - "-listen-client-urls=http://0.0.0.0:49501"
+       ports:
+           - "49501:49501"
+       environment:
+           - ETCD_CORS=*
+
+    etcd-browser:
+       image: buddho/etcd-browser
+       ports:
+           - "49502:8000"
+
