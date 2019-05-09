@@ -4,6 +4,9 @@ Mit diesem Sidecar gibt eine ScaleIT App in ETCD bekannt, dass und wie sie gesta
 
 Sie trägt wichtige Infos über sich in ETCD ein.
 
+Das Registration Sidecar kann in einer ScaleIT Core CE und EE Umgebung verwendet werden.
+
+
 ## Nutzung
 
 Das Registration-Sidecar muss im ```PlatformSidecars``` Verzeichnis liegen: 
@@ -60,7 +63,7 @@ t.b.d.
 
 ## Lizenz und Autor
 
-Es gilt die  Ondics Open Licence.
+Es gilt die  Ondics ScaleIT I40 Open Licence.
 
 Ondics GmbH
 Neckarstraße 66/1a
