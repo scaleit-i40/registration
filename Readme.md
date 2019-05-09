@@ -61,12 +61,17 @@ Bedeutung der Environment-Variablen:
 
 t.b.d.
 
+## Support
+
+Weitere Infos Im [ScaleIT I40 Wiki](https://wiki.scaleit-i40.de).
+
+Für alle  darüber hinaus gibt es das [ScaleIT I40 Forum](https://forum.scaleit-i40.de).
+
+
 ## Lizenz und Autor
 
 Es gilt die  Ondics ScaleIT I40 Open Licence.
 
-Ondics GmbH
-Neckarstraße 66/1a
-73728 Esslingen
+Ondics GmbH, Neckarstraße 66/1a, 73728 Esslingen
 
 (C) 2019, Ondics GmbH
