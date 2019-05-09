@@ -1,11 +1,12 @@
 # ScaleIT I40 Registration Sidecar
 
-Mit diesem Sidecar gibt eine ScaleIT App in ETCD bekannt, dass und wie sie gestartet wurde. 
+Mit diesem Sidecar gibt eine ScaleIT App in der ScaleIt App-Registry bekannt, dass und wie sie gestartet wurde. 
 
-Sie trägt wichtige Infos über sich in ETCD ein.
+Hierzu trägt das Registration Sidecar die App-Daten in der ScaleIT App Registry ETCD ein.
 
 Das Registration Sidecar kann in einer ScaleIT Core CE und EE Umgebung verwendet werden.
 
+Infos zur [ScaleIT App-Registry](https://wiki.scaleit-i40.de/index.php?title=ScaleIT-Komponenten_und_wie_man_damit_arbeitet)
 
 ## Nutzung
 
