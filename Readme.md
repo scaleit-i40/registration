@@ -35,32 +35,54 @@ Für eine App Pacman könnte das so aussehen:
         environment:
           - APP_ID=de-ondics-pacman
           - APP_NAME=ScaleIT Pacman
-          - APP_TITLE=ScaleIT Pacman
+          - APP_TITLE=ScaleIT Pacman-Spiel
           - APP_SHORT_DESCRIPTION=ScaleIT Pacman
-          - APP_DESCRIPTION=ScaleIT Pacman Web-Game
-          - APP_CATEGORY=domainApp
+          - APP_DESCRIPTION=Entspannung pur am Arbeitsplatz - ohne Highscore
+          - APP_CATEGORY=other
+          - SSO_ACTIVATED=${ssoproxy}
+          - SSO_APP_PREFIX=${DOMAINPREFIX}
+          - HOST_IP=${HOST_IPADDR}
           - APP_DOMAIN_PORT=${APP_DOMAIN_PORT}
           - APP_DOMAIN_PATH=/
           - APP_DOMAIN_DESCRIPTION=ScaleIT Pacman
           - APP_ICON_PORT=${APP_SIDECAR_WEBCONTENT_PORT}
+          - APP_ICON_SERVICE=webcontent
           - APP_ICON_PATH=/icon.png
-          - HOST_IP=${HOST_IPADDR}
-          - SSO_ACTIVATED=${ssoproxy}
-          - SSO_APP_PREFIX=${DOMAINPREFIX}
-          - APP_WEBCONTENT_SERVICENAME=webcontent
+          - APP_API_PORT=${APP_API_PORT}
           - APP_API_SERVICE=webcontent
-          - APP_API_PORT=${APP_SIDECAR_WEBCONTENT_PORT}
-          - APP_API_PATH=/
+          - APP_API_PATH=/api
 
 Hinweise:
 
-* APP_DOMAIN_PORT wird als Rancher-Question abgefragt
-* APP_ICON_PORT wird als Rancher-Question abgefragt
-* APP_SIDECAR_WEBCONTENT_PORT wird als Rancher-Question abgefragt
+* Die URLs werden so erstellt (HOSTNAME wird von Rancher ermittelt):
+  * in der CE: [HOST_IP]:[PORT]/[PATH]
+  * in der EE: [SERVICE_NAME]-[SSO_APP_PREFIX].[HOSTNAME]/[PATH]
+* Die PORT-Angaben werden am besten als Rancher-Question abgefragt
+
 
 Bedeutung der Environment-Variablen:
 
-t.b.d.
+| Variable  | Bedeutung | Beispiel |
+| ------------- | ------------- | ------------- |
+| APP_ID  | ID der App |de-ondics-pacman |
+| APP_NAME  | Kurzname  | ScaleIT Pacman |
+| APP_TITLE  | Kurzname  (durch Benutzer später änderbar) | Pacman-Spiel |
+| APP_SHORT_DESCRIPTION  | Kurze Beschreibung | ScaleIT Pacman |
+| APP_DESCRIPTION  | Beschreibung | Entspannung pur am Arbeitsplatz - ohne Highscore |
+| APP_CATEGORY  | App-Kategorie (core, digital-twin, workflow, other) | other
+| SSO_ACTIVATED  | Ist SSO aktiviert (in EE-Version:true, in CE-Version:false) | false |
+| SSO_APP_PREFIX  | Domain-Präfix dieser App | pacman |
+| HOST_IP  | TCP/IP-Adresse des Hosts (für CE-Version) | 192.168.1.100 |
+| APP_DOMAIN_PORT  | TCP/IP-Port für Benutzeroberfläche | ${APP_DOMAIN_PORT}
+| APP_DOMAIN_PATH  | Pfad für Benutzeroberfläche | / |
+| APP_DOMAIN_DESCRIPTION  | kurze Beschreibung der App | Benutzer-Oberfläche für Spiel |
+| APP_ICON_PORT  | TCP/IP-Port des Icon-Servcies (für CE-Version) | ${APP_ICON_PORT}
+| APP_ICON_SERVICE  | Name des Icon-Servcies (für EE-Version) | webcontent |
+| APP_ICON_PATH  | Pfad zum Icon | /icon.png |
+| APP_API_PORT  | TCP/IP-Port des API-Servcies (für CE-Version) | ${APP_API_PORT}
+| APP_API_SERVICE | Name des API-Servcies (für EE-Version) | webcontent |
+| APP_API_PATH  | Pfad zur API | /api |
+
 
 ## Support
 
