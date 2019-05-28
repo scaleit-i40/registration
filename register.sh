@@ -73,7 +73,9 @@ while [ "$STATUS" != 'healthy' ]; do
 done
 echo "etcd is up"
 
-APP_REGISTRY_URL="http://$ETCD_URI/v2/keys/apps/$APP_ID"
+#überprüfen, ob stack-name gesetzt, sonst id verwenden
+${STACK_NAME:?"$APP_ID"}
+APP_REGISTRY_URL="http://$ETCD_URI/v2/keys/apps/$STACK_NAME"
 echo APP_REGISTRY_URL: $APP_REGISTRY_URL
 
 function etcd_add() {
