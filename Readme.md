@@ -51,6 +51,7 @@ Für eine App Pacman könnte das so aussehen:
           - APP_API_SERVICE=webcontent
           - APP_API_PORT=${APP_SIDECAR_WEBCONTENT_PORT}
           - APP_API_PATH=/
+          - STACK_NAME={{ .Stack.Name }}
 
 Hinweise:
 
