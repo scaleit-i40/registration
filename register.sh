@@ -94,7 +94,7 @@ function build_url() {
     if [ "$3" == "" ]; then
       echo "https://$SSO_APP_PREFIX.$SSO_DOMAIN_META$1"
     else
-      echo "https://$3.$SSO_APP_PREFIX.$SSO_DOMAIN_META$1"
+      echo "https://$3-$SSO_APP_PREFIX.$SSO_DOMAIN_META$1"
     fi
   else
     echo "http://$RANCHER_HOST_IP:$2$1"
