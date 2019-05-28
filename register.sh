@@ -74,7 +74,9 @@ done
 echo "etcd is up"
 
 #überprüfen, ob stack-name gesetzt, sonst id verwenden
-${STACK_NAME:?"$APP_ID"}
+if [ -z ${STACK_NAME+x} ]; then 
+  STACK_NAME=$APP_ID
+fi
 APP_REGISTRY_URL="http://$ETCD_URI/v2/keys/apps/$STACK_NAME"
 echo APP_REGISTRY_URL: $APP_REGISTRY_URL
 
