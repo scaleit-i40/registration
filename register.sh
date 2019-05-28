@@ -140,7 +140,7 @@ term_handler() {
 
   # Eintrag löschen
   echo "*** App deregistrieren"
-  curl --silent -L -X PUT "http://$ETCD_URI/v2/keys/apps/$APP_ID?recursive=true" \
+  curl --silent -L -X PUT "$APP_REGISTRY_URL?recursive=true" \
     -XDELETE >> /dev/null
 
   # alternativ: Status auf offline setzen
