@@ -73,7 +73,11 @@ while [ "$STATUS" != 'healthy' ]; do
 done
 echo "etcd is up"
 
-APP_REGISTRY_URL="http://$ETCD_URI/v2/keys/apps/$APP_ID"
+#überprüfen, ob stack-name gesetzt, sonst id verwenden
+if [ -z ${STACK_NAME+x} ]; then 
+  STACK_NAME=$APP_ID
+fi
+APP_REGISTRY_URL="http://$ETCD_URI/v2/keys/apps/$STACK_NAME"
 echo APP_REGISTRY_URL: $APP_REGISTRY_URL
 
 function etcd_add() {
@@ -94,7 +98,7 @@ function build_url() {
     if [ "$3" == "" ]; then
       echo "https://$SSO_APP_PREFIX.$SSO_DOMAIN_META$1"
     else
-      echo "https://$3.$SSO_APP_PREFIX.$SSO_DOMAIN_META$1"
+      echo "https://$3-$SSO_APP_PREFIX.$SSO_DOMAIN_META$1"
     fi
   else
     echo "http://$RANCHER_HOST_IP:$2$1"
@@ -136,7 +140,7 @@ term_handler() {
 
   # Eintrag löschen
   echo "*** App deregistrieren"
-  curl --silent -L -X PUT "http://$ETCD_URI/v2/keys/apps/$APP_ID?recursive=true" \
+  curl --silent -L -X PUT "$APP_REGISTRY_URL?recursive=true" \
     -XDELETE >> /dev/null
 
   # alternativ: Status auf offline setzen

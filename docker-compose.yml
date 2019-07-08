@@ -27,6 +27,7 @@ services:
             - APP_API_PATH=
             - SSO_ACTIVATED=false
             - HOST_IP=192.168.1.107
+            - STACK_NAME=de-ondics-registration-test
 
     etcd:
        image: quay.io/coreos/etcd
