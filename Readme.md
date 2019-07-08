@@ -49,6 +49,9 @@ Für eine App Pacman könnte das so aussehen:
           - APP_API_PORT=${APP_SIDECAR_WEBCONTENT_PORT}
           - APP_API_PATH=/
           - APP_API_SERVICENAME=webcontent
+          - APP_ADMIN_PORT=${APP_DOMAIN_PORT}
+          - APP_ADMIN_PATH=/
+          - APP_ADMIN_SERVICENAME=
           - HOST_IP=${HOST_IPADDR}
           - SSO_ACTIVATED=${ssoproxy}
           - SSO_APP_PREFIX=${DOMAINPREFIX}
