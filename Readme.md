@@ -38,19 +38,23 @@ Für eine App Pacman könnte das so aussehen:
           - APP_TITLE=ScaleIT Pacman
           - APP_SHORT_DESCRIPTION=ScaleIT Pacman
           - APP_DESCRIPTION=ScaleIT Pacman Web-Game
+          - APP_DOMAIN_DESCRIPTION=ScaleIT Pacman
           - APP_CATEGORY=domainApp
           - APP_DOMAIN_PORT=${APP_DOMAIN_PORT}
           - APP_DOMAIN_PATH=/
-          - APP_DOMAIN_DESCRIPTION=ScaleIT Pacman
+          - APP_DOMAIN_SERVICENAME=
           - APP_ICON_PORT=${APP_SIDECAR_WEBCONTENT_PORT}
           - APP_ICON_PATH=/icon.png
+          - APP_ICON_SERVICENAME=webcontent
+          - APP_API_PORT=${APP_SIDECAR_WEBCONTENT_PORT}
+          - APP_API_PATH=/
+          - APP_API_SERVICENAME=webcontent
+          - APP_ADMIN_PORT=${APP_DOMAIN_PORT}
+          - APP_ADMIN_PATH=/
+          - APP_ADMIN_SERVICENAME=
           - HOST_IP=${HOST_IPADDR}
           - SSO_ACTIVATED=${ssoproxy}
           - SSO_APP_PREFIX=${DOMAINPREFIX}
-          - APP_WEBCONTENT_SERVICENAME=webcontent
-          - APP_API_SERVICE=webcontent
-          - APP_API_PORT=${APP_SIDECAR_WEBCONTENT_PORT}
-          - APP_API_PATH=/
           - STACK_NAME={{ .Stack.Name }}
 
 Hinweise:

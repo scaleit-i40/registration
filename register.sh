@@ -115,16 +115,34 @@ etcd_add shortDescription "$APP_SHORT_DESCRIPTION"
 etcd_add description "$APP_DESCRIPTION"
 etcd_add category "$APP_CATEGORY"
 
-APP_DOMAIN_URL=$(build_url  "$APP_DOMAIN_PATH" "$APP_DOMAIN_PORT" "")
+APP_DOMAIN_URL=$(build_url  "$APP_DOMAIN_PATH" "$APP_DOMAIN_PORT" "$APP_DOMAIN_SERVICENAME")
 etcd_add domainUrl "$APP_DOMAIN_URL"
 
-#APP_ADMIN_URL=$(build_url "$APP_ADMIN_PATH" "$APP_ADMIN_PORT" "")
-#etcd_add adminUrl "$APP_ADMIN_URL"
+APP_ADMIN_URL=$(build_url "$APP_ADMIN_PATH" "$APP_ADMIN_PORT" "$APP_ADMIN_SERVICENAME")
+etcd_add adminUrl "$APP_ADMIN_URL"
 
-APP_ICON_URL=$(build_url  "$APP_ICON_PATH" "$APP_ICON_PORT" "$APP_WEBCONTENT_SERVICENAME")
+# rückwärtskompatibilität
+if [ -z ${APP_ICON_SERVICENAME+x} ]; then 
+  if ! [ -z ${APP_WEBCONTENT_SERVICENAME+x} ]; then 
+    echo "DEPRECATED:"
+    echo "environment APP_WEBCONTENT_SERVICENAME is unset, use APP_ICON_SERVICENAME"; 
+    APP_ICON_SERVICENAME="$APP_WEBCONTENT_SERVICENAME"
+  fi
+fi
+
+APP_ICON_URL=$(build_url  "$APP_ICON_PATH" "$APP_ICON_PORT" "$APP_ICON_SERVICENAME")
 etcd_add iconUrl "$APP_ICON_URL"
 
-APP_API_URL=$(build_url  "$APP_API_PATH" "$APP_API_PORT" "$APP_API_SERVICE")
+# rückwärtskompatibilität
+if [ -z ${APP_API_SERVICENAME+x} ]; then 
+  if ! [ -z ${APP_API_SERVICE+x} ]; then 
+    echo "DEPRECATED:"
+    echo "environment APP_API_SERVICENAME is unset, use APP_API_SERVICE"; 
+    APP_API_SERVICENAME="$APP_API_SERVICE"
+  fi
+fi
+
+APP_API_URL=$(build_url  "$APP_API_PATH" "$APP_API_PORT" "$APP_API_SERVICENAME")
 etcd_add apiUrl "$APP_API_URL"
 
 # ...und Zeitstempel!
