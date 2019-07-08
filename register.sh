@@ -124,6 +124,14 @@ etcd_add adminUrl "$APP_ADMIN_URL"
 APP_ICON_URL=$(build_url  "$APP_ICON_PATH" "$APP_ICON_PORT" "$APP_WEBCONTENT_SERVICENAME")
 etcd_add iconUrl "$APP_ICON_URL"
 
+# rückwärtskompatibilität
+if [ -z ${APP_API_SERVICENAME+x} ]; then 
+  if ! [ -z ${APP_API_SERVICE+x} ]; then 
+    echo "DEPRECATED:"
+    echo "environment APP_API_SERVICENAME is unset, use APP_API_SERVICE"; 
+    APP_API_SERVICENAME="$APP_API_SERVICE"
+  fi
+fi
 APP_API_URL=$(build_url  "$APP_API_PATH" "$APP_API_PORT" "$APP_API_SERVICENAME")
 etcd_add apiUrl "$APP_API_URL"
 
