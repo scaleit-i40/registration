@@ -35,7 +35,7 @@ echo "host-ip========= $HOST_IP"
 
 # Rancher-Metadaten holen                                                                                                                                                                                    
 RANCHER_HOST_IP=$(curl -s "http://rancher-metadata/2015-12-19/hosts/0/agent_ip")                                                                                                                             
-if [ "$RANCHER_HOST_IP" == "" ]; then
+if [ "x$HOST_IP" != "x" ]; then
   RANCHER_HOST_IP=$HOST_IP           
 fi
 SSO_DOMAIN="[hostname-fehlt]"                                                                                                                                                                                
