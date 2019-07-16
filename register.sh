@@ -12,30 +12,15 @@ echo
 echo "pid: $$"
 
 # 
-# Beispiel-Werte (sollten als ENV-Veriablen gesetzt sein
-# im docker-compose.yml)
+# Eine Auflistung der aktuellen Werte, die mitgegeben werden sollen, stehen im Readme.
 #
-# APP_ID="de-ondics-qsreport"
-# APP_NAME="QS Report"
-# APP_TITLE=
-# APP_SHORT_DESCRIPTION=
-# APP_DESCRIPTION=
-# APP_CATEGORY=domainApp
-# APP_DOMAIN_PORT=
-# APP_DOMAIN_PATH=
-# APP_DONAIN_DESCRIPTION=
-# APP_ADMIN_PORT=
-# APP_ADMIN_PATH=
-# APP_ADMIN_DESCRIPTION=
-# APP_ICON_PORT=
-# APP_ICON_PATH=
 
 
 echo "host-ip========= $HOST_IP"
 
 # Rancher-Metadaten holen                                                                                                                                                                                    
 RANCHER_HOST_IP=$(curl -s "http://rancher-metadata/2015-12-19/hosts/0/agent_ip")                                                                                                                             
-if [ "$RANCHER_HOST_IP" == "" ]; then
+if [ "x$HOST_IP" != "x" ]; then
   RANCHER_HOST_IP=$HOST_IP           
 fi
 SSO_DOMAIN="[hostname-fehlt]"                                                                                                                                                                                
