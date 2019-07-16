@@ -12,23 +12,8 @@ echo
 echo "pid: $$"
 
 # 
-# Beispiel-Werte (sollten als ENV-Veriablen gesetzt sein
-# im docker-compose.yml)
+# Eine Auflistung der aktuellen Werte, die mitgegeben werden sollen, stehen im Readme.
 #
-# APP_ID="de-ondics-qsreport"
-# APP_NAME="QS Report"
-# APP_TITLE=
-# APP_SHORT_DESCRIPTION=
-# APP_DESCRIPTION=
-# APP_CATEGORY=domainApp
-# APP_DOMAIN_PORT=
-# APP_DOMAIN_PATH=
-# APP_DONAIN_DESCRIPTION=
-# APP_ADMIN_PORT=
-# APP_ADMIN_PATH=
-# APP_ADMIN_DESCRIPTION=
-# APP_ICON_PORT=
-# APP_ICON_PATH=
 
 
 echo "host-ip========= $HOST_IP"
