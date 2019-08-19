@@ -76,7 +76,7 @@ Für alle  darüber hinaus gibt es das [ScaleIT I40 Forum](https://forum.scaleit
 
 ## Lizenz und Autor
 
-Es gilt die  Ondics ScaleIT I40 Open Licence.
+Es gilt die  Ondics ScaleIT I40 Open Licence (kostenfreie Nutzung zu Testzwecken und für Apps, die sowohl kostenfrei nutzbar als auch quellöffentlich sind. Für kommerzielle Nutzung bitte anfragen).
 
 Ondics GmbH, Neckarstraße 66/1a, 73728 Esslingen
 
